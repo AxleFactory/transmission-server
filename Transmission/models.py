@@ -7,9 +7,15 @@ class ModelWithDates(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        abstract = True
+
 
 class Action(ModelWithDates):
     name = models.CharField(max_length=30)
+
+    class Meta:
+        abstract = True
 
     def __str__(self):
         return self.name
