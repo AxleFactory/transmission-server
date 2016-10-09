@@ -24,5 +24,5 @@ urlpatterns = [
     url(r'^assignments/', admin_site.urls),
     url(r'^assignments.json', views.assignments),
     url(r'^all-assignments.json', views.all_assignments),
-    url(r'^', views.assignments_redirect),
+    url(r'^$', views.assignments_redirect),
 ]
