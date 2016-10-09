@@ -2,6 +2,9 @@ from django.db import models
 from django.utils import timezone
 from django.core.validators import MaxValueValidator
 
+mustache_docs_url = "https://mustache.github.io/mustache.5.html"
+template_field_help_text = "%s will be evaluated as a <a href='%s' target='_blank'>mustache template</a>."
+
 
 class ModelWithDates(models.Model):
     created = models.DateTimeField(auto_now_add=True)
@@ -22,11 +25,17 @@ class Action(ModelWithDates):
 
 
 class CallAction(Action):
-    call_script = models.TextField(max_length=500)
+    call_script = models.TextField(
+        max_length=500,
+        help_text=template_field_help_text % ("Call script", mustache_docs_url)
+    )
 
 
 class TextAction(Action):
-    message_content = models.TextField(max_length=200)
+    message_content = models.TextField(
+        max_length=200,
+        help_text=template_field_help_text % ("Message content", mustache_docs_url)
+    )
 
 
 class Assignment(ModelWithDates):
