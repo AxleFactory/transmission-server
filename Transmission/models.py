@@ -78,15 +78,15 @@ class Assignment(ModelWithDates):
             'description': self.description,
             'instructions': self.instructions,
             'expires': self.expiration.isoformat(),
-            'require_call_first': self.require_call_first,
-            'call_actions': [{
+            'requireCallFirst': self.require_call_first,
+            'callActions': [{
                                  'id': a.id,
                                  'name': a.name,
-                                 'call_script': a.call_script,
+                                 'callScript': a.call_script,
                              } for a in self.call_actions.all()],
-            'text_actions': [{
+            'textActions': [{
                                  'id': a.id,
                                  'name': a.name,
-                                 'message_content': a.message_content,
+                                 'messageContent': a.message_content,
                              } for a in self.text_actions.all()],
         }
