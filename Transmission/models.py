@@ -77,7 +77,7 @@ class Assignment(ModelWithDates):
             'name': self.name,
             'description': self.description,
             'instructions': self.instructions,
-            'expiration': self.expiration.isoformat(),
+            'expires': self.expiration.isoformat(),
             'require_call_first': self.require_call_first,
             'call_actions': [{
                                  'id': a.id,
