@@ -33,7 +33,7 @@ class CallAction(Action):
 
 class TextAction(Action):
     message_content = models.TextField(
-        max_length=200,
+        max_length=500,
         help_text=template_field_help_text % ("Message content", mustache_docs_url)
     )
 
